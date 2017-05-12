@@ -16,17 +16,18 @@
 <br>
 
 <h3> Seasonal Time-Series</h3>
+<hr>
 <p> From several different sources, seasonal time series data, as found most commonly in economics has <strong>three components</strong>:</p>
 <ul> 
 <li>Seasonal (E.g., Spikes around December for clothing retailers, then sharp decrease following)</li>
 <li>Trend (E.g., The general increase in AAPL stock over time)</li>
 <li>Random (E.g., 1929's Great Depression Market Crash or 2008's Financial Market Crash; The pure nature/randomness/phenomina of a stochastic time series random variable)</li>
 </ul>
-<hr>
 
 <br>
 
 <h3> Forcasting Time-Series</h3>
+<hr>
 <p> As found in the <em>library(forcast)</em> package in R, we can actually predict where the next value of a time series value will be.</p>
 <ul> 
 <li></li>
