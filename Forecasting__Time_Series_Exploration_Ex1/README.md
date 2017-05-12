@@ -1,6 +1,6 @@
 <h2> Financial Time Series Predictive Analysis </h2>
 
-<h4>The tutorial associated with this code is here: <a href="https://www.r-bloggers.com/financial-time-series-forecasting-an-easy-approach/"></h4>
+<h4>The tutorial associated with this code is <a href="https://www.r-bloggers.com/financial-time-series-forecasting-an-easy-approach/">here</a>.</h4>
 
 <h4>The key takeaways from this r-bloggers snippet are:</h4>
 
