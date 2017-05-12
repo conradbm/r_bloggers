@@ -1,4 +1,5 @@
 <h1> Time Series and All It's Cousins </h1>
+<p> The fullness and glory of these notes come from <a href="https://a-little-book-of-r-for-time-series.readthedocs.io/en/latest/src/timeseries.html">this</a> article.</p>
 <hr>
 
 <br>
