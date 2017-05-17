@@ -137,4 +137,4 @@ plot(rainseriesforecasts)
 ###
 ###
 install.packages('forcast')
-library("forecast")
+library(forecast)
