@@ -2,6 +2,10 @@
 ### WRITTEN BY: BLAKE CONRAD
 ###
 
+### INSPIRING POSTS:
+### 1. CONDITIONAL PANDAS APPLY ALTERNATIVE:  
+###    https://stackoverflow.com/questions/33769860/pandas-apply-but-only-for-rows-where-a-condition-is-met
+
 ### LIBRARIES
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
