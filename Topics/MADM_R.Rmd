@@ -112,4 +112,4 @@ row.names(CStar) <- row.names(VNDM)
 CStar
 ```
 
-# In conclusion, we would select the first alternative, because he has the best score
+# In conclusion, we would select the first alternative, because he has the highest CScore; closest to the best attributes and         farthest from the worst attributes.
