@@ -102,27 +102,21 @@ TOPSIS <- function(DM){
   row.names(CStar) <- row.names(VNDM)
   
   # Next order them by descending, then return
-  
-  return(CStar)
+  CStar$rank <- rank(-CStar$C)
+  return(CStar[2:nrow(CStar),])
 }
 
 ###
 ### Function: sensitivity
-### Parameters: path= path to file and header if columnames provided
+### Parameters: data.frame in data.matrix format, 
 ###
-### Convert a standard import of:
+### E.g.,
+### sensitivity(cols=FALSE, step=0.01, data=dm, independent=TRUE, alg='TOPSIS')
 ###
-###         name      x1  x2  x3
-###1       weight    0.2 0.2 0.6
-###2 alternative1    0.5 0.5 0.5
-###3 alternative2    0.5 0.5 0.5
-###4 alternative3    0.5 0.5 0.5
+### If cols=FALSE is true, we will independetly increment each weight on each 
+### attribute and run the all specified with the step size given and create
+### a data.frame matrix that will be plotable by ggplot or plotly to show which
+### weights on each attribute would cause an 'outranking' relationship.
 ###
-### into (with rownames instead of a rownames column):
 ###
-###              x1  x2  x3
-### weight       0.2 0.2 0.6
-### alternative1 0.5 0.5 0.5
-### alternative2 0.5 0.5 0.5
-### alternative3 0.5 0.5 0.5
-###
+

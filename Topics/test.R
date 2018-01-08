@@ -5,4 +5,3 @@ source("Algorithms.R")
 dm <- read.data.matrix("file.csv", header=TRUE)
 dm
 TOPSIS(dm)
-
