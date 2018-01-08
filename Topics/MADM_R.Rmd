@@ -224,4 +224,4 @@ Topsis <- function(DM){
 
 <hr>
 
-## More functions to be considered into the `library(madm)` package will include `Saw`, `ELECTRE`, `PREMETHEE`, and a few other non-compensatory methods along with easy scalability for sensitivity analysis. 
+## More functions to be considered into the `library(madm)` package will include `SAW`, `ELECTRE`, `PREMETHEE`, and a few other non-compensatory methods along with easy scalability for sensitivity 
