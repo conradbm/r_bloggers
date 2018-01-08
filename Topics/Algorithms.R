@@ -150,6 +150,8 @@ Utility <- function(DM, scales=c()){
      # cost attributes: ((min-val)/(max- min))+1
   # normalize scores based on the linear scale
   # re-normalize any specified non-linear columns from the scales vector
+     # If exponential, exp(val^2)+1/1.7889 <-- can't explain why
+     # If logrithmic, log(val) <-- so the more you increase the less the function increases
   # sum each column after scaling each by their columns weights -- sumproduct
      # result = Dx2 data.frame to show an alternative, its score, and its rank.
   
