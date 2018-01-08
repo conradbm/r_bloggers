@@ -1,7 +1,5 @@
 # Algorithms.R
 
-### Function: TOPSIS
-### Parameters: data.frame object in read.data.matrix format
 ###
 ### Standard Decision Matrix Format (N+1)xD:
 ###
@@ -14,14 +12,21 @@
 ### .
 ### alternativeN
 ###
-### Thus, the shape is (N+1)xD for N alternatives accross D attributes with 1 single weight row 1.
+
+
+
+### Function: TOPSIS
+### Parameters: data.frame in read.data.matrix format
+### Output: data.frame
 ###
+### For more theory visit:
+### 1. https://github.com/conradbm/madm/blob/master/Examples/SAW_and_Topsis.xls
 TOPSIS <- function(DM){
   #DM <- data.frame(cost=as.numeric(runif(5,100, 200)),                                   #cost attribute, 100-200
   #             productivity=as.numeric(abs(rnorm(5))),                               #benefit attribute, abs(normalDist)
   #             location=as.numeric(floor(runif(5, 0, 5))),                           #benefit attribute, 0-5
   #             row.names = sprintf("alternative_%d",seq(1:5))
-  #  )
+  #       )
   #w <- data.frame(t(matrix(c(0.45, 0.35, 0.2))))
   #names(w) <- names(DM)
   #DM <- rbind(w,DM)
@@ -97,13 +102,16 @@ TOPSIS <- function(DM){
   row.names(S) <- row.names(VNDM)
   #S
   
-  CStar <- data.frame(S[,2] / (S[,1]-S[,2]))
+  CStar <- data.frame(S[,2] / (S[,1]+S[,2]))
   names(CStar) <- "C"
   row.names(CStar) <- row.names(VNDM)
   
   # Next order them by descending, then return
-  CStar$rank <- rank(-CStar$C)
-  return(CStar[2:nrow(CStar),])
+  CStar$Rank <- rank(-CStar$C)
+  CStar$Alternative <- row.names(CStar)
+  row.names(CStar) <- NULL
+  retDf <- CStar[2:nrow(CStar),c("Alternative", "C","Rank")]
+  return(retDf)
 }
 
 ###
@@ -118,5 +126,48 @@ TOPSIS <- function(DM){
 ### a data.frame matrix that will be plotable by ggplot or plotly to show which
 ### weights on each attribute would cause an 'outranking' relationship.
 ###
+### I want to be able to plot several different viewpoints
 ###
+### A stacked bar chart
+### Overlapped lines showing independent changes
+###
+### Anything else?
+sensitivity <- function(){
+  
+}
 
+### Function: Utility
+### Parameters: data.frame object in read.data.matrix format, vector of scales (linear, exponential, or logrithmic)
+###
+### For more theory visit: 
+### 1. https://github.com/conradbm/madm/blob/master/Examples/MAUT.xls
+### 2. https://github.com/conradbm/madm/blob/master/Examples/SAW_and_Topsis.xls
+###
+Utility <- function(DM, scales=c()){
+  # if scales not null, save which function goes with each column
+  # define min/maxs for each attribute
+     # benefit attributes: ((val-min)/(max-min))
+     # cost attributes: ((min-val)/(max- min))+1
+  # normalize scores based on the linear scale
+  # re-normalize any specified non-linear columns from the scales vector
+  # sum each column after scaling each by their columns weights -- sumproduct
+     # result = Dx2 data.frame to show an alternative, its score, and its rank.
+  
+  # bonus: bar chart 'Global Utility Score' with scores as yvalue and alternative as xvalue
+  # bonus: instead of adding them all (SAW), just scale each alternative by each attribute, then plot
+     # a stacked bar with x=alternative, y=value, color=attribute
+}
+
+### For more theory visit: 
+### 1. https://github.com/conradbm/madm/blob/master/Examples/ELECTRE.xlsx
+###
+ELECTRE <- function(DM){
+  
+}
+
+### For more theory visit: 
+### 1. https://github.com/conradbm/madm/blob/master/Examples/PROMETHEE.xlsx
+###
+PROMETHEE <- function(DM){
+  
+}
