@@ -183,6 +183,7 @@ MAUT <- function(DM, scales=c()){
   
   # Scales not supplied sufficiently
   if(length(scales)==0 || length(scales) < ncol(DM)){
+      cat("No scales were provided or provided incompletely. Setting default scaling to linear.\n")
       scales = rep("linear", ncol(DM))
   }
 
